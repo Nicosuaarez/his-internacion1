@@ -1,0 +1,32 @@
+extends ../layout
+
+block content 
+    h1 Registrar nuevo paciente 
+
+        form(method="POST", action='/paciente/nuevo')
+            div 
+                label Nombre:
+                input(type="text", name='nombre', required)  
+            div 
+                label Apeliido:
+                input(type="text", name='apellido', required)  
+            div 
+                label DNI: 
+                input(type="text", name='dni', required)  
+            div 
+                label Fecha de nacimiento:
+                input(type="date", name='fecha_nacimiento', required) 
+            div 
+                label Sexo: 
+                select(name="sexo", required)
+                    option(value=" ") Seleccione 
+                    option(value="M") Masculino   
+                    option(value="F") Femenino   
+            div 
+                label Teléfono:
+                input(type="text", name='telefono')  
+            div 
+                label Dirección: 
+                input(type="text", name='direccion') 
+            div 
+                button(type='sumbit' ) Guardar 
