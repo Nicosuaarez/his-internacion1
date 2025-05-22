@@ -1,0 +1,27 @@
+extends ../layout
+
+block content 
+    h1 Lista de pacientes registrados 
+    
+    table(border='1')
+        thead
+            tr  
+                th ID 
+                th Nombre
+                th Apellido
+                th DNI
+                th Fecha de nacimiento
+                th Sexo
+                th Telefono 
+                th Direccion 
+        tdoby   
+            each paciente in pacientes 
+                tr 
+                    td= paciente.id
+                    td= paciente.nombre
+                    td= paciente.apellido
+                    td= paciente.dni
+                    td= paciente.fecha_nacimiento.toISOString().split('T')[0]
+                    td= paciente.sexo
+                    td= paciente.telefono
+                    td= paciente.direccion
