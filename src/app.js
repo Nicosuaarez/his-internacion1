@@ -18,3 +18,6 @@ app.listen(PORT, () => {
 
 const pacientesRoutes = require('./routes/pacientes');
 app.use('/pacientes', pacientesRoutes);
+
+const internacionesRoutes = require('./routes/internaciones');
+app.use('/internaciones', internacionesRoutes);

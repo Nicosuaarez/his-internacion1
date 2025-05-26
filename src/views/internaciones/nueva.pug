@@ -1,0 +1,12 @@
+extends ../layout
+
+block content 
+    h1 Internar paciente #{pacienteId}
+
+    form(method='POST', action=`/internaciones/nueva/${pacienteId}`)
+        div 
+            label Cama (ID por ahora):
+            input(type="number", name='cama_id', required)
+        div 
+            button(type="submit") Confirmar internacion 
+              
