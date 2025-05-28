@@ -27,4 +27,20 @@ router.post('/nueva/:id', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    const query=`
+        SELECT internaciones.id, internaciones.fecha_ingreso, internaciones.cama_id, pacientes.nombre, pacientes.apellido
+        FROM internaciones
+        JOIN pacientes ON internaciones.paciente_id = pacientes.id
+        ORDER BY internaciones.fecha_ingreso DESC
+        `;
+
+db.query(query, (err, resultados) => {
+    if (err) {
+        console.error('Error al obtener internaciones:', err);
+        return res.send('Error al obtener internaciones.')
+    }
+    res.render('internaciones/listado', { internaciones: resultados});
+})
+})
 module.exports = router;

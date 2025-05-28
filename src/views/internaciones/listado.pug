@@ -1,0 +1,22 @@
+extends ../layout
+
+block content 
+    h1 Internaciones registradas 
+
+    if internaciones.length === 0
+        p No hay internaciones registradas.
+    else 
+        table 
+            thead 
+                tr 
+                    th ID
+                    th Paciente
+                    th Cama
+                    th Fecha de ingreso 
+                tbody 
+                    each internacion in internaciones 
+                        tr
+                            td= internacion.id 
+                            td= internacion.nombre + ' ' + internacion.apellido 
+                            td= internacion.cama_id 
+                            td= internacion.fecha_ingreso.toISOString().split('T')[0]
