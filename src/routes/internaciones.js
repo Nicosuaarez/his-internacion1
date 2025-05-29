@@ -9,22 +9,43 @@ router.get('/nueva/:id', (req, res) => {
 });
 
 router.post('/nueva/:id', (req, res) => {
-    const pacienteId = req.params.id;
-    const camaId = req.body.cama_id;
+  const pacienteId = req.params.id;
+  const camaId = req.body.cama_id;
 
-    const query = `
-        INSERT INTO internaciones (paciente_id, cama_id)
-        VALUES (?, ?)
+  const verificarQuery = `
+    SELECT * FROM internaciones
+    WHERE (
+      cama_id = ? OR
+      paciente_id = ?
+    ) AND DATE(fecha_ingreso) = CURDATE()
+  `;
+
+  db.query(verificarQuery, [camaId, pacienteId], (err, resultados) => {
+    if (err) {
+      console.error('Error al verificar internación:', err);
+      return res.send('Error al verificar internación.');
+    }
+
+    // Si hay resultados, hay conflicto
+    if (resultados.length > 0) {
+      return res.send('Ya existe una internación hoy para este paciente o esta cama.');
+    }
+
+    // Insertar la internación
+    const insertQuery = `
+      INSERT INTO internaciones (paciente_id, cama_id)
+      VALUES (?, ?)
     `;
 
-    db.query(query, [pacienteId, camaId], (err, result) => {
-        if (err){
-            console.error('Error al registrar la internacion:', err);
-            return res.send('Ocurrio un error al internar un paciente.')            
-        }
-        
-        res.send('El paciente ha sido internado correctamente.');
+    db.query(insertQuery, [pacienteId, camaId], (err2, result) => {
+      if (err2) {
+        console.error('Error al registrar la internación:', err2);
+        return res.send('Error al internar al paciente.');
+      }
+
+      return res.send('Paciente internado correctamente.');
     });
+  });
 });
 
 router.get('/', (req, res) => {

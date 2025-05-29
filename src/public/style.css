@@ -5,6 +5,14 @@ body {
     padding: 20px;
 }
 
+ p{
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #5c9ded;
+    padding: 2px;
+    border-bottom: 1px solid #5c9ded;
+}
 .container{
     max-width: 1000px;
     margin: auto;
