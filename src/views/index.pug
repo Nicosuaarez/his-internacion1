@@ -6,4 +6,15 @@ html
         h1= titulo 
         p  sistema hospitalario para admision de pacientes.
 
-        
+        nav 
+            ul.navbar 
+                li 
+                    a(href="/") Inicio 
+                li 
+                    a(href="/pacientes") Pacientes 
+                li 
+                    a(href="/internaciones") Internaciones
+                li 
+                    a(href="/pacientes/nuevo") Registrar nuevo paciente 
+        .container
+            block content 

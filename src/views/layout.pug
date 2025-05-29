@@ -4,5 +4,15 @@ html
         title HIS - Internacion 
         link(rel='stylesheet', href='/style.css')
     body 
+        nav 
+            ul.navbar 
+                li 
+                    a(href="/") Inicio 
+                li 
+                    a(href="/pacientes") Pacientes 
+                li 
+                    a(href="/internaciones") Internaciones
+                li 
+                    a(href="/pacientes/nuevo") Nuevo paciente 
         .container
             block content 
