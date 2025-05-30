@@ -17,10 +17,16 @@ router.post('/nuevo', (req, res) =>{
     db.query(query, [nombre, apellido, dni, fecha_nacimiento, sexo, telefono, direccion], (err, result) =>{
         if (err) {
             console.error('Error al guardar al paciente:', err);
-            return res.send('Ocurrio un error al guardar el paciente.');
+            return res.render('mensaje',{
+        mensaje: 'Ocurrio un erro al guardar el paciente.',
+        tipo: 'mensaje-error'
+      });
         }
         
-        res.send('Paciente registrado correctamente.');
+        res.render('mensaje',{
+        mensaje: 'El paciente ha sido registrado con exito.',
+        tipo: 'mensaje-ok'
+      });
     });
 });
 
@@ -29,7 +35,10 @@ router.get('/', (req, res) => {
     db.query('SELECT * FROM pacientes', (err, resultados) =>{
         if (err) {
             console.error('Error al obtener pacientes:', err);
-            return res.send('Error al obtener pacientes');
+            return res.render('mensaje',{
+        mensaje: 'Error al obtener pacientes.',
+        tipo: 'mensaje-error'
+      });
         }
 
         res.render('pacientes/listado', { pacientes: resultados });

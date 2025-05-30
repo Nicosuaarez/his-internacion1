@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #5c9ded;
     padding: 2px;
-    border-bottom: 1px solid #5c9ded;
+    
 }
 .container{
     max-width: 1000px;
@@ -62,7 +62,7 @@ select:focus{
 button{
     display: block;
     width: 100%;
-    background-color:#5c9ded;
+    background-color:#28a745;
     color: white;
     padding:12px;
     border: none;
@@ -148,4 +148,42 @@ nav{
 
 .navbar li a:hover{
     text-decoration: underline;
+}
+
+.mensaje{
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button-volver{
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    margin: 20px auto;
+    color: #5c9ded;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-volver:hover{
+    text-decoration: underline;
+}
+
+.mensaje-error {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cd;
+}
+
+.mensaje-ok{
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
 }

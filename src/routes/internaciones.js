@@ -23,12 +23,18 @@ router.post('/nueva/:id', (req, res) => {
   db.query(verificarQuery, [camaId, pacienteId], (err, resultados) => {
     if (err) {
       console.error('Error al verificar internación:', err);
-      return res.send('Error al verificar internación.');
+      return res.render('mensaje',{
+        mensaje: 'Erro al verificar la inertnacion.',
+        tipo: 'mensaje-error'
+      });
     }
 
     // Si hay resultados, hay conflicto
     if (resultados.length > 0) {
-      return res.send('Ya existe una internación hoy para este paciente o esta cama.');
+      return res.render('mensaje',{
+        mensaje: 'Ya existe una internacion para esta cama o paciente.',
+        tipo: 'mensaje-error'
+      });
     }
 
     // Insertar la internación
@@ -40,10 +46,16 @@ router.post('/nueva/:id', (req, res) => {
     db.query(insertQuery, [pacienteId, camaId], (err2, result) => {
       if (err2) {
         console.error('Error al registrar la internación:', err2);
-        return res.send('Error al internar al paciente.');
+        return res.render('mensaje',{
+        mensaje: 'Error al internar el paciente.',
+        tipo: 'mensaje-error'
+      });
       }
 
-      return res.send('Paciente internado correctamente.');
+      return res.render('mensaje',{
+        mensaje: 'El paciente fue internado correctamente.',
+        tipo: 'mensaje-ok'
+      });
     });
   });
 });
@@ -59,7 +71,10 @@ router.get('/', (req, res) => {
 db.query(query, (err, resultados) => {
     if (err) {
         console.error('Error al obtener internaciones:', err);
-        return res.send('Error al obtener internaciones.')
+        return res.render('mensaje',{
+        mensaje: 'Error al obtener internaciones.',
+        tipo: 'mensaje-error'
+      });
     }
     res.render('internaciones/listado', { internaciones: resultados});
 })
