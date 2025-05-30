@@ -1,21 +1,25 @@
-doctype html 
+
 html 
     head 
         title= titulo 
         link(rel="stylesheet", href="style.css")
     body 
-        nav 
-            ul.navbar 
-                li 
-                    a(href="/") Inicio 
-                li 
-                    a(href="/pacientes") Pacientes 
-                li 
-                    a(href="/internaciones") Internaciones
-                li 
-                    a(href="/pacientes/nuevo") Registrar
-        h1= titulo 
-        p  sistema hospitalario para admision de pacientes.
+    block content 
+        .inicio
+            
+            nav 
+                ul.navbar
+                    a.logo(href="/") HIS - Internación 
+                    ul.nav-links  
+                        li 
+                            a(href="/") Inicio 
+                        li 
+                            a(href="/pacientes") Pacientes 
+                        li 
+                            a(href="/internaciones") Internaciones
+                        li 
+                            a(href="/pacientes/nuevo") Registrar
+            h1= titulo 
+            p  sistema hospitalario para admision de pacientes.
 
-        .container
-            block content 
+        

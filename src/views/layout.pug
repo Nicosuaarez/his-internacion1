@@ -6,13 +6,15 @@ html
     body 
         nav 
             ul.navbar 
-                li 
-                    a(href="/") Inicio 
-                li 
-                    a(href="/pacientes") Pacientes 
-                li 
-                    a(href="/internaciones") Internaciones
-                li 
-                    a(href="/pacientes/nuevo") Registrar
+                a.logo(href="/") HIS - Internacion 
+                ul.nav-links  
+                    li 
+                        a(href="/") Inicio 
+                    li 
+                        a(href="/pacientes") Pacientes 
+                    li 
+                        a(href="/internaciones") Internaciones
+                    li 
+                        a(href="/pacientes/nuevo") Registrar 
         .container
             block content 
