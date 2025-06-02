@@ -1,8 +1,10 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    margin : 0px;
-    padding: 0px;
+    background-color: #ffffff;
+    margin : 0;
+    padding: 0;
+    height: 100%;
+    
 }
 
 .inicio{
@@ -26,19 +28,14 @@ body {
 .pagina-con-fondo{
     background-image: url('/img/fondo-index.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    padding: 20px 30px 200px 30px;
-    min-height: 100vh;
-    width: 100vh;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 0px);
     padding: 40px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     color: white;
 }
+
 
 .container p{
     
@@ -47,20 +44,24 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #5c9ded;
     padding: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     
 }
 .container{
-    max-width: 1000px;
-    margin: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 .container h1, h2{
-    color: #333;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 form{
-    background-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 30px;
     max-width: 600px;
     margin: 40px auto;
@@ -78,16 +79,18 @@ label{
 input, select{
     width: 100%;
     padding: 10px;
+    text-align: center;
     margin-bottom: 18px;
     border-bottom: 1px solid #5c9ded;
     border-top: 0 solid transparent;
     border-right: 0 solid transparent;
     border-left: 0 solid transparent;
     border-radius: 6px;
-    font-size: 16px;
-    background-color: #fdfdfd;
+    font-size: 30px;
+    background-color: transparent;
     transition: border-color 0.2s ease-in-out;
     color: #3288f0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 input:focus,
@@ -164,9 +167,9 @@ form.inline-form{
 }
 
 nav{
+    height: 0px;
     background-color: transparent;
-    padding: 10px 0;
-    margin-bottom: 30px;
+    padding: 0px 10px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
