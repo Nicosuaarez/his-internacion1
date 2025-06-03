@@ -17,9 +17,9 @@ block content
                     tbody 
                         each internacion in internaciones 
                             tr
-                                td= internacion.id 
-                                td= internacion.nombre + ' ' + internacion.apellido 
-                                td= internacion.cama_id 
-                                td= internacion.fecha_ingreso.toISOString().split('T')[0]
+                                td(data-label="ID")= internacion.id 
+                                td(data-label="Paciente")= internacion.nombre + ' ' + internacion.apellido 
+                                td(data-label="Cama")= internacion.cama_id 
+                                td(data-label="Fecha de ingreso")= internacion.fecha_ingreso.toISOString().split('T')[0]
     
     

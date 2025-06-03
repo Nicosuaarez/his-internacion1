@@ -15,16 +15,18 @@ block content
                     th Sexo
                     th Telefono 
                     th Direccion 
+                    th Estado
             tdoby   
                 each paciente in pacientes 
                     tr 
-                        td= paciente.id
-                        td= paciente.nombre
-                        td= paciente.apellido
-                        td= paciente.dni
-                        td= paciente.fecha_nacimiento.toISOString().split('T')[0]
-                        td= paciente.sexo
-                        td= paciente.telefono
-                        td= paciente.direccion
-                        td 
-                            a(href=`/internaciones/nueva/${paciente.id}`) Internar 
+                        td(data-label="")= paciente.id
+                        td(data-label="Nombre")= paciente.nombre
+                        td(data-label="Apellido")= paciente.apellido
+                        td(data-label="DNI")= paciente.dni
+                        td(data-label="Fecha de nacimiento")= paciente.fecha_nacimiento.toISOString().split('T')[0]
+                        td(data-label="Sexo")= paciente.sexo
+                        td(data-label="Telefono")= paciente.telefono
+                        td(data-label="Direccion")= paciente.direccion
+                        td(class= "button_internar") 
+                            a( class="button_internar" href=`/internaciones/nueva/${paciente.id}`) Internar 
+                        

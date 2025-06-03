@@ -1,30 +1,60 @@
-body {
+html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffffff;
     margin : 0;
     padding: 0;
-    height: 100%;
-    
+    max-width: 100%;
+    overflow-x: hidden;
 }
+.container, .inicio, .pagina-con-fondo{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 
+}
+/*PAGINA INICIO*/
 .inicio{
-    background-image: url('/img/fondo-layout.jpg');
+    background-image: url('/img/fondo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    padding: 20px 30px 200px 30px;
     min-height: 100vh;
     min-width: 100vh;
     color: #ffffff;
-    text-align: center;
-    padding: 0 20px;
+    
 }
 
-.inicio h1, .inicio p {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+.inicio h1  {
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 0;
+    color:#00005c;
+    font-size: 40px;
+    text-shadow: rgba(0, 0, 0, 0.7);
 }
-
+.inicio p{
+    margin-left: 70px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    font-size: 20px;
+    color: #4d4d7a;
+    font-weight: 600;
+}
+.button_registrar{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px 30px;
+    background-color:#00005c;
+    border-radius: 28px;
+    margin-left: 110px;
+    color: white;
+}
+.button_registrar:hover{
+    background-color: #4d4d7a;
+}
+/*FONDO PACIENTES Y INTERNADOS*/
 .pagina-con-fondo{
     background-image: url('/img/fondo-index.jpg');
     background-size: cover;
@@ -36,7 +66,7 @@ body {
     color: white;
 }
 
-
+/*LAYOUT*/
 .container p{
     
     margin: auto;
@@ -59,11 +89,11 @@ body {
     margin-bottom: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
-
+/*REGISTRAR*/
 form{
     background-color: rgba(0, 0, 0, 0.3);
     padding: 30px;
-    max-width: 600px;
+    max-width: 100%;
     margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -78,6 +108,7 @@ label{
 
 input, select{
     width: 100%;
+    max-width: 100%;
     padding: 10px;
     text-align: center;
     margin-bottom: 18px;
@@ -86,11 +117,12 @@ input, select{
     border-right: 0 solid transparent;
     border-left: 0 solid transparent;
     border-radius: 6px;
-    font-size: 30px;
+    font-size: 16px;
     background-color: transparent;
     transition: border-color 0.2s ease-in-out;
     color: #3288f0;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
 }
 
 input:focus,
@@ -101,6 +133,7 @@ select:focus{
 button{
     display: block;
     width: 100%;
+    max-width: 100%;
     background-color:#28a745;
     color: white;
     padding:12px;
@@ -108,45 +141,50 @@ button{
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
+    box-sizing: border-box;
     transition: background-color 0.2s ease-in-out;
 }
-
+/*PACIENTES Y INTERNADOS*/
 button:hover {
-    background-color: #4a89dc;
+    background-color: #28a745;
 }
 
 table {
     width: 100%;
-    border: 5px; 
+    border: 5px #28a745; 
     border-collapse: collapse;
     margin-top: 40px;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 
+
+.button_internar{
+    background-color: red;
+    text-decoration: none;
+    color: white;
+    
+}
 th, td{
-    padding: 14px;
+    padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #28a745;
     border-radius: 8px;
 
 }
 
 th{
-    background-color: white;
-    color:  #5c9ded;
+    background-color:transparent;
+    color:  #28a745;
+    text-shadow: rgba(0, 0, 0, 0.7);
 }
 
 tr{
-    background-color:white;
-    color:  #5c9ded;
+    background-color:transparent;
 }
 
-tr:hover{
-    background-color: #f9f9f9;
-}
-
+/*BOTON INTTERNAR*/
 a.button, form button[type="submit"]{
     background-color: #28a745;
     color: white;
@@ -165,29 +203,35 @@ a.button:hover, form button[type="submit"]:hover{
 form.inline-form{
     display: inline;
 }
-
+/*BARRA DE NAVEGACION*/
 nav{
-    height: 0px;
-    background-color: transparent;
-    padding: 0px 10px;
+    flex-wrap: wrap;
+    margin: 0;
+    background-color: #00005c;
+    padding: 20px 10px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .navbar{
+    flex-wrap: wrap;
     list-style: none;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     margin: 0;
     padding: 0;
     align-items: center;
 }
 
 .logo{
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     color: white;
     text-decoration: none;
+    padding-left: 30px;
+}
+.logo:hover{
+    font-size: 32px;
 }
 
 .nav-links{
@@ -204,12 +248,14 @@ nav{
     color: white;
     text-decoration: none;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 .nav-links li a:hover{
     text-decoration: underline;
+    color: #4d4d7a;
 }
-
+/*MENSAJES DE ERROR Y ACEPTACION*/
 .mensaje{
     max-width: 600px;
     margin: 40px auto;
