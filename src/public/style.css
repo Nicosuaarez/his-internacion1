@@ -57,6 +57,7 @@ html, body {
 /*FONDO PACIENTES Y INTERNADOS*/
 .pagina-con-fondo{
     background-image: url('/img/nuevo-fondo-p.jpg');
+    background-color: #00005c;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -91,23 +92,49 @@ html, body {
 }
 /*FORMULARIOS CAMA Y ADMISION*/
 .nueva-ad-cama form {
-    margin: auto;
-    padding: 50px 200px;
+    margin: 10px 200px;
+    padding: 10px 20px;
+    color:white;
+    text-align: center;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    text-shadow: none;
+    transition: border-color 0.2s ease-in-out;
 }
 
+.nueva-ad-cama select{
+    margin-top: 5px;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+option{
+    color: white ;
+    background-color: #00005c;
+    font-size: 20px;
+}
+
+.nueva-ad-cama input{
+    font-size: 22px;
+    text-shadow: none;
+}
 
 /*REGISTRAR*/
+form{
+    margin: 0 auto;
+}
 .paciente-form form{
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 30px;
+    margin: 20px 200px;
+    backdrop-filter: blur(3px);
+    padding: 30px 300px;
     max-width: 100%;
     margin: 40px auto;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
 }
 
-label{
+.paciente-form label{
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
@@ -120,16 +147,14 @@ input, select{
     padding: 10px;
     text-align: center;
     margin-bottom: 18px;
-    border-bottom: 1px solid white;
-    border-top: 0 solid transparent;
-    border-right: 0 solid transparent;
-    border-left: 0 solid transparent;
-    border-radius: 6px;
-    font-size: 16px;
-    background-color: transparent;
+    border:2px solid #00005c;
+    border-radius: 8px;
+    
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.08);
     transition: border-color 0.2s ease-in-out;
     color: white;
-    text-shadow: 2px 2px 5px rgba(248, 247, 247, 0.7);
+    
     box-sizing: border-box;
 }
 
@@ -211,9 +236,7 @@ a.button:hover, form button[type="submit"]:hover{
     background-color: #218838;
 }
 
-form.inline-form{
-    display: inline;
-}
+
 /*BARRA DE NAVEGACION*/
 nav{
     flex-wrap: wrap;
@@ -267,14 +290,14 @@ nav{
     color: #4d4d7a;
 }
 /*MENSAJES DE ERROR Y ACEPTACION*/
-.mensaje{
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 18px;
+.mensaje p{
+    margin: 0 150px;
+    color: white;
+    background-color: #00005c;
+    border-radius: 10px;
+    padding: 10px;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .button-volver{
@@ -284,7 +307,7 @@ nav{
     gap: 20px;
     text-align: center;
     margin: 20px auto;
-    color: #5c9ded;
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
@@ -293,14 +316,6 @@ nav{
     text-decoration: underline;
 }
 
-.mensaje-error {
-    background-color: #d4edda;
-    color: #155724;
-    border: 2px solid #c3e6cd;
-}
 
-.mensaje-ok{
-    background-color: #d4edda;
-    color: #155724;
-    border: 2px solid #c3e6cb;
-}
+
+

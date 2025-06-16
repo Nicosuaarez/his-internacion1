@@ -2,32 +2,33 @@ extends ../layout
 
 block content 
     .pagina-con-fondo
-        H1 Registrar nuevo paciente 
+        .paciente-form
+            H1 Registrar nuevo paciente 
 
-            form(method="POST", action='/pacientes/nuevo' class="paciente-form")
-                div 
-                    label Nombre:
-                    input(type="text", name='nombre', required)  
-                div 
-                    label Apeliido:
-                    input(type="text", name='apellido', required)  
-                div 
-                    label DNI: 
-                    input(type="text", name='dni', required)  
-                div 
-                    label Fecha de nacimiento:
-                    input(type="date", name='fecha_nacimiento', required) 
-                div 
-                    label Sexo: 
-                    select(name="sexo" required)
-                        option(value="" disabled selected hidden) Seleccione un sexo
-                        option(value="M") Masculino   
-                        option(value="F") Femenino   
-                div 
-                    label Teléfono de contacto:
-                    input(type="text", name='telefono' required)  
-                div 
-                    label Dirección: 
-                    input(type="text", name='direccion' required) 
-                div 
-                    button(type='sumbit') Guardar 
+                form(method="POST", action='/pacientes/nuevo' class="paciente-form")
+                    div 
+                        label Nombre:
+                        input(type="text", name='nombre', required)  
+                    div 
+                        label Apeliido:
+                        input(type="text", name='apellido', required)  
+                    div 
+                        label DNI: 
+                        input(type="text", name='dni', required)  
+                    div 
+                        label Fecha de nacimiento:
+                        input(type="date", name='fecha_nacimiento', required) 
+                    div 
+                        label Sexo: 
+                        select(name="sexo" required)
+                            option(value="" disabled selected hidden) Seleccione un sexo
+                            option(value="M") Masculino   
+                            option(value="F") Femenino   
+                    div 
+                        label Teléfono de contacto:
+                        input(type="text", name='telefono' required)  
+                    div 
+                        label Dirección: 
+                        input(type="text", name='direccion' required) 
+                    div 
+                        button(type='sumbit') Guardar 

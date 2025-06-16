@@ -13,6 +13,10 @@ router.post('/nueva/:id', (req, res) => {
 
     if (motivo === 'Urgencia'){
         return res.redirect(`/internaciones/nueva/${pacienteId}`);
+    }else if(motivo === 'Derivacion'){
+        return res.render('mensaje',{
+            mensaje: 'Admision registrada. Sera derivado.'
+        })    
     }else{
         return res.render('mensaje',{
         mensaje: `Admision registrada. No requiere internacion por el motivo seleccionado: ${motivo}`,
