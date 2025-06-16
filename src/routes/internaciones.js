@@ -12,49 +12,69 @@ router.post('/nueva/:id', (req, res) => {
   const pacienteId = req.params.id;
   const camaId = req.body.cama_id;
 
-  const verificarQuery = `
+  const verificarPaciente = `
     SELECT * FROM internaciones
-    WHERE (
-      cama_id = ? OR
-      paciente_id = ?
-    ) AND DATE(fecha_ingreso) = CURDATE()
+    WHERE paciente_id = ? AND DATE(fecha_ingreso) = CURDATE()
   `;
 
-  db.query(verificarQuery, [camaId, pacienteId], (err, resultados) => {
-    if (err) {
-      console.error('Error al verificar internación:', err);
-      return res.render('mensaje',{
-        mensaje: 'Erro al verificar la inertnacion.',
+  const verificarCama = `
+    SELECT * FROM internaciones
+    WHERE cama_id = ? AND DATE(fecha_ingreso) = CURDATE()
+  `;
+
+  // Valida el paciente
+  db.query(verificarPaciente, [pacienteId], (err1, resPaciente) => {
+    if (err1) {
+      console.error('Error al verificar paciente:', err1);
+      return res.render('mensaje', {
+        mensaje: 'Error al verificar la internación del paciente.',
         tipo: 'mensaje-error'
       });
     }
 
-    // Si hay resultados, hay conflicto
-    if (resultados.length > 0) {
-      return res.render('mensaje',{
-        mensaje: 'Ya existe una internacion para esta cama o paciente.',
+    if (resPaciente.length > 0) {
+      return res.render('mensaje', {
+        mensaje: '⚠️ Este paciente ya está internado hoy.',
         tipo: 'mensaje-error'
       });
     }
 
-    // Insertar la internación
-    const insertQuery = `
-      INSERT INTO internaciones (paciente_id, cama_id)
-      VALUES (?, ?)
-    `;
-
-    db.query(insertQuery, [pacienteId, camaId], (err2, result) => {
+    // Valida la cama
+    db.query(verificarCama, [camaId], (err2, resCama) => {
       if (err2) {
-        console.error('Error al registrar la internación:', err2);
-        return res.render('mensaje',{
-        mensaje: 'Error al internar el paciente.',
-        tipo: 'mensaje-error'
-      });
+        console.error('Error al verificar cama:', err2);
+        return res.render('mensaje', {
+          mensaje: 'Error al verificar la cama.',
+          tipo: 'mensaje-error'
+        });
       }
 
-      return res.render('mensaje',{
-        mensaje: 'El paciente fue internado correctamente.',
-        tipo: 'mensaje-ok'
+      if (resCama.length > 0) {
+        return res.render('mensaje', {
+          mensaje: 'Esta cama ya está ocupada hoy.',
+          tipo: 'mensaje-error'
+        });
+      }
+
+      // Insertar internación
+      const insertQuery = `
+        INSERT INTO internaciones (paciente_id, cama_id)
+        VALUES (?, ?)
+      `;
+
+      db.query(insertQuery, [pacienteId, camaId], (err3, result) => {
+        if (err3) {
+          console.error('Error al registrar internación:', err3);
+          return res.render('mensaje', {
+            mensaje: 'Error al internar al paciente.',
+            tipo: 'mensaje-error'
+          });
+        }
+
+        return res.render('mensaje', {
+          mensaje: 'Paciente internado correctamente.',
+          tipo: 'mensaje-ok'
+        });
       });
     });
   });
