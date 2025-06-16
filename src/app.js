@@ -22,3 +22,6 @@ app.use('/pacientes', pacientesRoutes);
 
 const internacionesRoutes = require('./routes/internaciones');
 app.use('/internaciones', internacionesRoutes);
+
+const admisionesRoutes = require('./routes/admisiones');
+app.use('/admisiones', admisionesRoutes);

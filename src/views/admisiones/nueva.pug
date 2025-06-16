@@ -1,0 +1,16 @@
+extends ../layout
+
+block content 
+    .nueva-ad-cama 
+        h1 Admision de paciente
+
+        form(method="POST")
+            label(for="motivo") Motivo de ingreso:
+            select(name="motivo" requiredd)
+                option(value="") Seleccione un motivo
+                option(value="Urgencia") Urgencia
+                option(value="Consulta") Consulta
+                option(value="Control") Control
+                option(value="Derivacion") Derivacion
+            button(type="submit") Confirmar
+        
