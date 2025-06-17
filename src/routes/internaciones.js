@@ -34,7 +34,7 @@ router.post('/nueva/:id', (req, res) => {
 
     if (resPaciente.length > 0) {
       return res.render('mensaje', {
-        mensaje: '⚠️ Este paciente ya está internado hoy.',
+        mensaje: 'Este paciente ya está internado hoy.',
         tipo: 'mensaje-error'
       });
     }
