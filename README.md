@@ -40,7 +40,7 @@ Consiste en un sistema hospitalario para la admision e internacion de pacientes,
 
 ## ¿Como probar el sistema?
 
-1. Entrar a /pacientes
+1. Entrar a /pacientes/nuevo
 2. Registrar un paciente
 3. Ver el paciente en el listado
 4. Usar el boton "Internar" para asignar una cama
@@ -53,7 +53,7 @@ Consiste en un sistema hospitalario para la admision e internacion de pacientes,
 
     Repositorio GitHub: https://github.com/Nicosuaarez/his-internacion1
     Video de presentacion:
-    App Online:
+    App Online: https://his-internacion.onrender.com/
 
 
 ## Alumno
