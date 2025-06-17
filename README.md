@@ -52,7 +52,7 @@ Consiste en un sistema hospitalario para la admision e internacion de pacientes,
 ## Enlaces requeridos para la entrega
 
     Repositorio GitHub: https://github.com/Nicosuaarez/his-internacion1
-    Video de presentacion:
+    Video de presentacion: https://drive.google.com/file/d/1qCe4bYGL1OSsOSIETMKWRIQNNDY04Bdj/view?usp=sharing
     App Online: https://his-internacion.onrender.com/
 
 
